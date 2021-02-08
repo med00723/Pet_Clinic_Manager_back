@@ -1,16 +1,9 @@
 package fr.univ_tours.polytech.pet_clinic_manager_back.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-@Entity
-public class Role extends BaseEntity {
-    @Id
-    @Column(name = "id")
+public class Role {
+
     private int id;
 
-    @Column(name = "name")
     private String name;
 
     public Role(int id, String name) {
