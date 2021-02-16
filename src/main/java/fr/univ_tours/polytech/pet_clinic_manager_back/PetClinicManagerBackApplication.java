@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PetClinicManagerBackApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PetClinicManagerBackApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PetClinicManagerBackApplication.class, args);
+    }
 
 }
