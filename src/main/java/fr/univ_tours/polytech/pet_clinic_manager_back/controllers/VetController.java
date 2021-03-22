@@ -19,19 +19,21 @@ import javax.validation.Valid;
 public class VetController {
     @Autowired
     VetRepository vetRepository;
+
     @GetMapping
-    public ResponseEntity<?> findVisits() {
+    public ResponseEntity<?> findVets() {
         return ResponseEntity.ok(new FindVetsResponse(vetRepository.findAll()));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findPet(@Valid @PathVariable Integer id) {
+    public ResponseEntity<?> findVet(@Valid @PathVariable Integer id) {
         return ResponseEntity.ok(new FindVetResponse(vetRepository.findById(id)));
     }
+
     @PostMapping
-    public ResponseEntity<?> registerPet(@Valid @RequestBody VetRequest vetRequest) {
+    public ResponseEntity<?> registerVet(@Valid @RequestBody VetRequest vetRequest) {
         // Create new pet
-        Vet vet = new Vet(vetRequest.getFirstname(),vetRequest.getLastname(), vetRequest.getWorkTime(), vetRequest.getSalary());
+        Vet vet = new Vet(vetRequest.getFirstname(), vetRequest.getLastname(), vetRequest.getWorkTime(), vetRequest.getSalary());
 
         vetRepository.save(vet);
 
@@ -39,8 +41,8 @@ public class VetController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> putPet(@Valid @RequestBody VetRequest vetRequest, @PathVariable Integer id) {
-        Vet vet = new Vet(vetRequest.getFirstname(),vetRequest.getLastname(), vetRequest.getWorkTime(), vetRequest.getSalary());
+    public ResponseEntity<?> putVet(@Valid @RequestBody VetRequest vetRequest, @PathVariable Integer id) {
+        Vet vet = new Vet(vetRequest.getFirstname(), vetRequest.getLastname(), vetRequest.getWorkTime(), vetRequest.getSalary());
         vet.setId(id);
 
         vetRepository.save(vet);
@@ -49,7 +51,7 @@ public class VetController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletePet(@Valid @PathVariable Integer id) {
+    public ResponseEntity<?> deleteVet(@Valid @PathVariable Integer id) {
         if (vetRepository.findById(id) != null) {
             vetRepository.delete(vetRepository.findById(id));
             return ResponseEntity.ok(new MessageResponse("Vet deleted successfully!"));

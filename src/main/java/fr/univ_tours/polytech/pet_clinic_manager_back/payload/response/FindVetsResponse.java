@@ -5,17 +5,17 @@ import fr.univ_tours.polytech.pet_clinic_manager_back.models.Vet;
 import java.util.List;
 
 public class FindVetsResponse {
-    private List<Vet> pets;
+    private List<Vet> vets;
 
-    public List<Vet> getPets() {
-        return pets;
+    public FindVetsResponse(List<Vet> vets) {
+        this.vets = vets;
     }
 
-    public void setPets(List<Vet> pets) {
-        this.pets = pets;
+    public List<Vet> getVets() {
+        return vets;
     }
 
-    public FindVetsResponse(List<Vet> pets) {
-        this.pets = pets;
+    public void setVets(List<Vet> vets) {
+        this.vets = vets;
     }
 }
