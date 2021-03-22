@@ -11,7 +11,9 @@ public class Vet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
+    private String firstname;
+
+    private String lastname;
 
     private Integer workTime;
 
@@ -20,8 +22,9 @@ public class Vet {
     public Vet() {
     }
 
-    public Vet(String name, Integer workTime, Integer salary) {
-        this.name = name;
+    public Vet(String firstname, String lastname, Integer workTime, Integer salary) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.workTime = workTime;
         this.salary = salary;
     }
@@ -32,14 +35,6 @@ public class Vet {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Integer getWorkTime() {
@@ -56,5 +51,21 @@ public class Vet {
 
     public void setSalary(Integer salary) {
         this.salary = salary;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }

@@ -31,7 +31,7 @@ public class VetController {
     @PostMapping
     public ResponseEntity<?> registerPet(@Valid @RequestBody VetRequest vetRequest) {
         // Create new pet
-        Vet vet = new Vet(vetRequest.getName(), vetRequest.getWorkTime(), vetRequest.getSalary());
+        Vet vet = new Vet(vetRequest.getFirstname(),vetRequest.getLastname(), vetRequest.getWorkTime(), vetRequest.getSalary());
 
         vetRepository.save(vet);
 
@@ -40,7 +40,7 @@ public class VetController {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> putPet(@Valid @RequestBody VetRequest vetRequest, @PathVariable Integer id) {
-        Vet vet = new Vet(vetRequest.getName(), vetRequest.getWorkTime(), vetRequest.getSalary());
+        Vet vet = new Vet(vetRequest.getFirstname(),vetRequest.getLastname(), vetRequest.getWorkTime(), vetRequest.getSalary());
         vet.setId(id);
 
         vetRepository.save(vet);
