@@ -33,7 +33,7 @@ public class PetController {
     @PostMapping
     public ResponseEntity<?> registerPet(@Valid @RequestBody PetRequest petRequest) {
         // Create new pet
-        Pet pet = new Pet(petRequest.getName(), petRequest.getDatebirth(), petRequest.getGender(), petRequest.getType(), petRequest.getOwner());
+        Pet pet = new Pet(petRequest.getName(), petRequest.getDatebirth(), petRequest.getGender(), petRequest.getType(), petRequest.getBreed(), petRequest.getOwner());
 
         petRepository.save(pet);
 
@@ -42,7 +42,7 @@ public class PetController {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> putPet(@Valid @RequestBody PetRequest petRequest, @PathVariable Integer id) {
-        Pet pet = new Pet(petRequest.getName(), petRequest.getDatebirth(), petRequest.getGender(), petRequest.getType(), petRequest.getOwner());
+        Pet pet = new Pet(petRequest.getName(), petRequest.getDatebirth(), petRequest.getGender(), petRequest.getType(), petRequest.getBreed(), petRequest.getOwner());
         pet.setId(id);
 
         petRepository.save(pet);

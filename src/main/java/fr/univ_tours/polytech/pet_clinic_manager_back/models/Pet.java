@@ -20,16 +20,19 @@ public class Pet {
 
     private String type;
 
+    private String breed;
+
     private String owner;
 
     public Pet() {
     }
 
-    public Pet(String name, String datebirth, String gender, String type, String owner) {
+    public Pet(String name, String datebirth, String gender, String type, String breed, String owner) {
         this.name = name;
         this.datebirth = datebirth;
         this.gender = gender;
         this.type = type;
+        this.breed = breed;
         this.owner = owner;
     }
 
@@ -71,6 +74,14 @@ public class Pet {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
     }
 
     public String getOwner() {

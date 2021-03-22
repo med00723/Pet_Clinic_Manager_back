@@ -9,6 +9,8 @@ public class PetRequest {
 
     private String type;
 
+    private String breed;
+
     private String owner;
 
     public String getName() {
@@ -41,6 +43,14 @@ public class PetRequest {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
     }
 
     public String getOwner() {
