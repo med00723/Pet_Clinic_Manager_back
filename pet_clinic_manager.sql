@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 26 mars 2021 à 10:30
+-- Généré le : ven. 26 mars 2021 à 13:00
 -- Version du serveur :  8.0.22
 -- Version de PHP : 8.0.0
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `pet_clinic_manager`
 --
-CREATE DATABASE IF NOT EXISTS `pet_clinic_manager` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `pet_clinic_manager`;
 
 -- --------------------------------------------------------
 
@@ -32,14 +30,14 @@ USE `pet_clinic_manager`;
 DROP TABLE IF EXISTS `pet`;
 CREATE TABLE IF NOT EXISTS `pet` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `breed` varchar(255) DEFAULT NULL,
   `datebirth` varchar(255) DEFAULT NULL,
   `gender` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `owner` varchar(255) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
-  `breed` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -52,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `roles`
@@ -75,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UKr43af9ap4edm43mmtq01oddj6` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -96,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `user_roles` (
   `role_id` int NOT NULL,
   PRIMARY KEY (`user_id`,`role_id`),
   KEY `FKh8ciramu9cc9q3qcqiv4ue8a6` (`role_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `user_roles`
@@ -114,12 +112,12 @@ INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
 DROP TABLE IF EXISTS `vet`;
 CREATE TABLE IF NOT EXISTS `vet` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `salary` int DEFAULT NULL,
-  `work_time` int DEFAULT NULL,
   `firstname` varchar(255) DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL,
+  `salary` int DEFAULT NULL,
+  `work_time` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -139,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `visit` (
   PRIMARY KEY (`id`),
   KEY `FKooohregrhu964bmpdpmf5ssjy` (`id_pet`),
   KEY `FKnfyo5iep8jvrq0rw7qh4axtft` (`id_vet`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Contraintes pour les tables déchargées
